@@ -113,12 +113,21 @@ function PetalIcon({ className }: { className?: string }) {
       aria-hidden="true"
     >
       <path
-        d="M14 4C11.2 4 8.6 6.4 8.6 9.2c0 2.6 2.1 5.7 5.4 7.8 3.3-2.1 5.4-5.2 5.4-7.8C19.4 6.4 16.8 4 14 4Z"
+        d="M14 3.5c-2.8 3.1-3.6 6-2.2 8.1 1.2 1.8 2.2 2.4 2.2 2.4s1-0.6 2.2-2.4c1.4-2.1 0.6-5-2.2-8.1Z"
+        fill="#F2A9C7"
+      />
+      <path
+        d="M6.7 13.6c3.6-0.6 6.3 0.2 7.7 2 1.2 1.6 1.3 2.8 1.3 2.8s-1.1 0.6-3 0.9c-2.3 0.4-4.7-1.4-6-5.7Z"
         fill="#F7C6D9"
       />
       <path
-        d="M6 15.4c0-2.6 2.4-5.1 5.8-5.1 2.9 0 5.7 1.6 7.7 4.1-2.5 2.6-5.5 4.2-8.2 4.2C8.7 18.6 6 17.2 6 15.4Z"
+        d="M21.3 13.6c-3.6-0.6-6.3 0.2-7.7 2-1.2 1.6-1.3 2.8-1.3 2.8s1.1 0.6 3 0.9c2.3 0.4 4.7-1.4 6-5.7Z"
+        fill="#F7C6D9"
+      />
+      <path
+        d="M13.3 20.4c0.4 0.4 1 0.4 1.4 0l1.2-1.2c0.4-0.4 0.4-1 0-1.4-0.4-0.4-1-0.4-1.4 0l-0.5 0.5-0.5-0.5c-0.4-0.4-1-0.4-1.4 0-0.4 0.4-0.4 1 0 1.4l1.2 1.2Z"
         fill="#E7D7F6"
+        opacity="0.9"
       />
     </svg>
   );
@@ -421,8 +430,8 @@ export default function Home() {
         }}
       />
 
-      <header className="sticky top-4 z-50 px-4 sm:px-8">
-        <nav className="glass-nav mx-auto mt-6 flex w-full max-w-5xl items-center justify-between px-6 py-3">
+      <header className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 sm:px-8">
+        <nav className="glass-nav mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-3">
           <div className="flex items-center gap-2 text-base font-semibold text-[color:var(--petal-ink)]">
             <PetalIcon className="h-7 w-7" />
             <span>petal</span>
@@ -444,7 +453,7 @@ export default function Home() {
       </header>
 
       <main className="relative z-10">
-        <section className="px-4 pb-24 pt-20 sm:px-8" id="top">
+        <section className="px-4 pb-24 pt-24 sm:px-8" id="top">
           <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
             <div>
               <p className="fade-in text-xs uppercase tracking-[0.35em] text-pink-400">
@@ -509,10 +518,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section
-          className="px-4 pb-24 sm:px-8"
-          id="about"
-        >
+        <section className="scroll-mt-28 px-4 pb-24 sm:px-8" id="about">
           <SectionHeader
             eyebrow="You're not alone"
             title="We understand how you feel"
@@ -522,7 +528,7 @@ export default function Home() {
             {validationCards.map((card, index) => (
               <GlassCard
                 key={card.title}
-                className={`p-6 ${index === 1 ? "md:-translate-y-2" : ""}`}
+                className="p-6 flex h-full flex-col"
               >
                 <IconBadge>
                   {index === 0 ? <LeafIcon /> : index === 1 ? <SparkIcon /> : <HeartIcon />}
@@ -538,10 +544,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section
-          className="px-4 pb-24 sm:px-8"
-          id="philosophy"
-        >
+        <section className="scroll-mt-28 px-4 pb-24 sm:px-8" id="philosophy">
           <SectionHeader
             eyebrow="Our Philosophy"
             title="How petal helps you bloom"
@@ -569,7 +572,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="px-4 pb-24 sm:px-8" id="features">
+        <section className="scroll-mt-28 px-4 pb-24 sm:px-8" id="features">
           <SectionHeader
             eyebrow="Features"
             title="Everything you need, nothing you don't"
@@ -592,7 +595,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="px-4 pb-28 sm:px-8" id="waitlist">
+        <section className="scroll-mt-28 px-4 pb-28 sm:px-8" id="waitlist">
           <div className="mx-auto max-w-3xl">
             <GlassCard className="glass-panel p-8 sm:p-10">
               <div className="text-center">

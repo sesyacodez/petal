@@ -58,7 +58,7 @@ body {
     ),
     linear-gradient(180deg, #fff7fa 0%, #fff1f6 45%, #fff7fa 100%);
   min-height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .glass-nav,
