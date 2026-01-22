@@ -1,10 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const FORM_ENDPOINT = "https://formspree.io/f/xykeyyye";
 
 type Status = "idle" | "submitting" | "success" | "error";
+
+interface Petal {
+  id: number;
+  left: number;
+  delay: number;
+  duration: number;
+  size: number;
+  rotation: number;
+  opacity: number;
+  type: "sakura" | "rose";
+}
 
 const navLinks = [
   { label: "Philosophy", href: "#philosophy" },
@@ -35,21 +46,25 @@ const philosophyItems = [
     title: "Gentle reminders",
     description:
       "Soft nudges that respect your flow state. Never jarring, always considerate.",
+    icon: "leaf",
   },
   {
     title: "Rest is productive",
     description:
       "Built-in breaks and mindful pauses. Your wellbeing is part of the plan.",
+    icon: "heart",
   },
   {
     title: "Intention setting",
     description:
       "Start your day with a clear mind, selecting only 3 main focus areas.",
+    icon: "spark",
   },
   {
     title: "Mood tracking",
     description:
       "Correlate your productivity with your emotional state to understand yourself better.",
+    icon: "petal",
   },
 ];
 
@@ -238,6 +253,100 @@ function FloatingBlob({
   );
 }
 
+function FloatingPetals() {
+  const [petals, setPetals] = useState<Petal[]>([]);
+
+  useEffect(() => {
+    const newPetals: Petal[] = Array.from({ length: 20 }, (_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      delay: Math.random() * 20,
+      duration: 18 + Math.random() * 18,
+      size: 10 + Math.random() * 18,
+      rotation: Math.random() * 360,
+      opacity: 0.25 + Math.random() * 0.35,
+      type: Math.random() > 0.5 ? "sakura" : "rose",
+    }));
+    setPetals(newPetals);
+  }, []);
+
+  return (
+    <div className="petal-field" aria-hidden="true">
+      {petals.map((petal) => (
+        <div
+          key={petal.id}
+          className="absolute animate-petal"
+          style={{
+            left: `${petal.left}%`,
+            top: "-8%",
+            animationDelay: `${petal.delay}s`,
+            animationDuration: `${petal.duration}s`,
+            opacity: petal.opacity,
+            ["--petal-opacity" as const]: petal.opacity,
+          }}
+        >
+          {petal.type === "sakura" ? (
+            <svg
+              width={petal.size}
+              height={petal.size}
+              viewBox="0 0 24 24"
+              fill="none"
+              style={{ transform: `rotate(${petal.rotation}deg)` }}
+            >
+              <path
+                d="M12 2C12 2 14 6 14 8C14 10 12 12 12 12C12 12 10 10 10 8C10 6 12 2 12 2Z"
+                fill="#FFB6C1"
+                opacity="0.8"
+              />
+              <path
+                d="M12 12C12 12 16 10 18 10C20 10 22 12 22 12C22 12 20 14 18 14C16 14 12 12 12 12Z"
+                fill="#FFC0CB"
+                opacity="0.8"
+              />
+              <path
+                d="M12 12C12 12 14 16 14 18C14 20 12 22 12 22C12 22 10 20 10 18C10 16 12 12 12 12Z"
+                fill="#FFB6C1"
+                opacity="0.8"
+              />
+              <path
+                d="M12 12C12 12 8 10 6 10C4 10 2 12 2 12C2 12 4 14 6 14C8 14 12 12 12 12Z"
+                fill="#FFC0CB"
+                opacity="0.8"
+              />
+              <circle cx="12" cy="12" r="2" fill="#FFD1DC" />
+            </svg>
+          ) : (
+            <svg
+              width={petal.size}
+              height={petal.size * 0.8}
+              viewBox="0 0 20 16"
+              fill="none"
+              style={{ transform: `rotate(${petal.rotation}deg)` }}
+            >
+              <ellipse
+                cx="10"
+                cy="8"
+                rx="9"
+                ry="7"
+                fill="#E8B4CB"
+                opacity="0.7"
+              />
+              <ellipse
+                cx="10"
+                cy="9"
+                rx="6"
+                ry="5"
+                fill="#F5D0E0"
+                opacity="0.5"
+              />
+            </svg>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function Home() {
   const [status, setStatus] = useState<Status>("idle");
 
@@ -267,6 +376,7 @@ export default function Home() {
 
   return (
     <div className="petal-bg text-sm sm:text-base">
+      <FloatingPetals />
       <FloatingBlob
         className="float-slower"
         style={{
@@ -439,12 +549,15 @@ export default function Home() {
           />
           <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
             {philosophyItems.map((item) => (
-              <GlassCard key={item.title} className="flex gap-4 p-6">
+              <GlassCard key={item.title} className="flex flex-col items-center text-center p-6 h-full">
                 <IconBadge>
-                  <PetalIcon className="h-6 w-6" />
+                  {item.icon === "leaf" ? <LeafIcon /> : 
+                   item.icon === "heart" ? <HeartIcon /> : 
+                   item.icon === "spark" ? <SparkIcon /> : 
+                   <PetalIcon className="h-6 w-6" />}
                 </IconBadge>
-                <div>
-                  <h3 className="text-lg font-semibold text-[color:var(--petal-ink)]">
+                <div className="flex-1 flex flex-col justify-center">
+                  <h3 className="mt-4 text-lg font-semibold text-[color:var(--petal-ink)]">
                     {item.title}
                   </h3>
                   <p className="mt-2 text-sm text-[color:var(--foreground)]">
