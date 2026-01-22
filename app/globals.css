@@ -11,6 +11,20 @@
   --petal-glass: rgba(255, 247, 250, 0.65);
   --petal-glass-border: rgba(255, 255, 255, 0.45);
   --petal-shadow: 0 20px 60px rgba(226, 188, 210, 0.25);
+
+  --icon-rose: #e89cb8;
+  --icon-lavender: #9b8fe6;
+  --icon-green: #4aa66a;
+  --icon-amber: #d08b2e;
+
+  --badge-rose-bg: rgba(247, 198, 217, 0.35);
+  --badge-rose-border: rgba(247, 198, 217, 0.45);
+  --badge-lavender-bg: rgba(231, 215, 246, 0.38);
+  --badge-lavender-border: rgba(231, 215, 246, 0.55);
+  --badge-green-bg: rgba(191, 232, 206, 0.45);
+  --badge-green-border: rgba(191, 232, 206, 0.7);
+  --badge-amber-bg: rgba(255, 236, 187, 0.42);
+  --badge-amber-border: rgba(255, 236, 187, 0.65);
 }
 
 @theme inline {
@@ -124,8 +138,28 @@ body {
   width: 48px;
   height: 48px;
   border-radius: 16px;
-  background: rgba(247, 198, 217, 0.35);
-  border: 1px solid rgba(247, 198, 217, 0.45);
+  background: var(--badge-rose-bg);
+  border: 1px solid var(--badge-rose-border);
+}
+
+.badge-rose {
+  background: var(--badge-rose-bg);
+  border-color: var(--badge-rose-border);
+}
+
+.badge-lavender {
+  background: var(--badge-lavender-bg);
+  border-color: var(--badge-lavender-border);
+}
+
+.badge-green {
+  background: var(--badge-green-bg);
+  border-color: var(--badge-green-border);
+}
+
+.badge-amber {
+  background: var(--badge-amber-bg);
+  border-color: var(--badge-amber-border);
 }
 
 .floating-blob {

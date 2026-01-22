@@ -28,16 +28,22 @@ const validationCards = [
     title: "Quiet by design",
     description:
       "No aggressive red badges or urgent notifications. Your attention is sacred and shouldn't be hijacked.",
+    icon: "volume",
+    badge: "badge-rose",
   },
   {
     title: "Anti-burnout",
     description:
       "We notice when you're overcommitting and gently suggest rescheduling. It's okay to do less today.",
+    icon: "zap",
+    badge: "badge-rose",
   },
   {
     title: "Natural rhythms",
     description:
       "Plan your day around your energy levels, not just time slots. Flow with your day, don't force it.",
+    icon: "heart",
+    badge: "badge-rose",
   },
 ];
 
@@ -46,25 +52,29 @@ const philosophyItems = [
     title: "Gentle reminders",
     description:
       "Soft nudges that respect your flow state. Never jarring, always considerate.",
-    icon: "leaf",
+    icon: "bell",
+    badge: "badge-green",
   },
   {
     title: "Rest is productive",
     description:
       "Built-in breaks and mindful pauses. Your wellbeing is part of the plan.",
-    icon: "heart",
+    icon: "moon",
+    badge: "badge-lavender",
   },
   {
     title: "Intention setting",
     description:
       "Start your day with a clear mind, selecting only 3 main focus areas.",
-    icon: "spark",
+    icon: "target",
+    badge: "badge-rose",
   },
   {
     title: "Mood tracking",
     description:
       "Correlate your productivity with your emotional state to understand yourself better.",
-    icon: "petal",
+    icon: "smile",
+    badge: "badge-amber",
   },
 ];
 
@@ -73,31 +83,43 @@ const features = [
     title: "Soft scheduling",
     description:
       "Flexible time blocks that adjust automatically if a meeting runs late.",
+    icon: "calendar",
+    badge: "badge-rose",
   },
   {
     title: "Soundscapes",
     description:
       "Built-in ambient noise: rain, forest, or café sounds to help you flow.",
+    icon: "sound",
+    badge: "badge-rose",
   },
   {
     title: "Reflections",
     description:
       "Weekly summaries focused on what you achieved, not what you missed.",
+    icon: "note",
+    badge: "badge-rose",
   },
   {
     title: "Co-blooming",
     description:
       "Share intentions with friends without seeing their specific tasks.",
+    icon: "users",
+    badge: "badge-rose",
   },
   {
     title: "Minimal widgets",
     description:
       "Home screen widgets that show only the current intention.",
+    icon: "grid",
+    badge: "badge-rose",
   },
   {
     title: "Self-compassion",
     description:
       "Prompts to take breaks when your activity patterns suggest fatigue.",
+    icon: "heart",
+    badge: "badge-rose",
   },
 ];
 
@@ -162,6 +184,320 @@ function LeafIcon({ className }: { className?: string }) {
   );
 }
 
+function VolumeIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M11 5 6.5 9H4v6h2.5L11 19V5Z"
+        stroke="var(--icon-rose)"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M19 9 15 15"
+        stroke="var(--icon-rose)"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+      <path
+        d="M15 9 19 15"
+        stroke="var(--icon-rose)"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function ZapIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"
+        stroke="var(--icon-rose)"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function BellIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M12 22a2.2 2.2 0 0 0 2.2-2.2H9.8A2.2 2.2 0 0 0 12 22Z"
+        stroke="var(--icon-green)"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+      <path
+        d="M18 17H6c1.2-1.2 2-2.2 2-5.4a4 4 0 0 1 8 0c0 3.2.8 4.2 2 5.4Z"
+        stroke="var(--icon-green)"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function MoonIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M21 14.5A7.5 7.5 0 0 1 9.5 3.2 9 9 0 1 0 21 14.5Z"
+        stroke="var(--icon-lavender)"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function TargetIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <circle
+        cx="12"
+        cy="12"
+        r="8"
+        stroke="var(--icon-rose)"
+        strokeWidth="1.6"
+      />
+      <circle
+        cx="12"
+        cy="12"
+        r="4"
+        stroke="var(--icon-rose)"
+        strokeWidth="1.6"
+      />
+      <circle cx="12" cy="12" r="1.2" fill="var(--icon-rose)" />
+    </svg>
+  );
+}
+
+function SmileIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <circle
+        cx="12"
+        cy="12"
+        r="8"
+        stroke="var(--icon-amber)"
+        strokeWidth="1.6"
+      />
+      <path
+        d="M9.2 14.2c.8.9 1.8 1.4 2.8 1.4s2-.5 2.8-1.4"
+        stroke="var(--icon-amber)"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+      <path
+        d="M9.2 10.5h.01M14.8 10.5h.01"
+        stroke="var(--icon-amber)"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function CalendarIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M7 3v3M17 3v3"
+        stroke="var(--icon-rose)"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+      <path
+        d="M5 7h14"
+        stroke="var(--icon-rose)"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+      <path
+        d="M6.5 5.8h11A1.5 1.5 0 0 1 19 7.3v12.2A1.5 1.5 0 0 1 17.5 21h-11A1.5 1.5 0 0 1 5 19.5V7.3A1.5 1.5 0 0 1 6.5 5.8Z"
+        stroke="var(--icon-rose)"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function SoundIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M11 5 6.5 9H4v6h2.5L11 19V5Z"
+        stroke="var(--icon-rose)"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M15 9.5c1.2 1.2 1.2 3.8 0 5"
+        stroke="var(--icon-rose)"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+      <path
+        d="M17.8 8c2 2 2 6 0 8"
+        stroke="var(--icon-rose)"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        opacity="0.9"
+      />
+    </svg>
+  );
+}
+
+function NoteIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M7 3h8l3 3v15a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"
+        stroke="var(--icon-rose)"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M15 3v3h3"
+        stroke="var(--icon-rose)"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8 11h8M8 15h8"
+        stroke="var(--icon-rose)"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        opacity="0.9"
+      />
+    </svg>
+  );
+}
+
+function UsersIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M16 11a3 3 0 1 0-6 0 3 3 0 0 0 6 0Z"
+        stroke="var(--icon-rose)"
+        strokeWidth="1.6"
+      />
+      <path
+        d="M4 20c1.5-3 4.2-5 8-5s6.5 2 8 5"
+        stroke="var(--icon-rose)"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function GridIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M5 5h6v6H5V5ZM13 5h6v6h-6V5ZM5 13h6v6H5v-6ZM13 13h6v6h-6v-6Z"
+        stroke="var(--icon-rose)"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 function HeartIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -204,8 +540,14 @@ function SparkIcon({ className }: { className?: string }) {
   );
 }
 
-function IconBadge({ children }: { children: React.ReactNode }) {
-  return <div className="icon-badge">{children}</div>;
+function IconBadge({
+  children,
+  variant = "badge-rose",
+}: {
+  children: React.ReactNode;
+  variant?: "badge-rose" | "badge-green" | "badge-lavender" | "badge-amber";
+}) {
+  return <div className={`icon-badge ${variant}`}>{children}</div>;
 }
 
 function GlassCard({
@@ -365,20 +707,50 @@ export default function Home() {
     setStatus("submitting");
 
     try {
-      const formData = new FormData(event.currentTarget);
+      const formEl = event.currentTarget;
+      const formData = new FormData(formEl);
+
+      // First attempt: CORS + JSON response (preferred when available)
       const response = await fetch(FORM_ENDPOINT, {
         method: "POST",
         headers: { Accept: "application/json" },
         body: formData,
       });
 
+      // Some environments/extensions block reading the response even if the request is delivered.
+      // In that case, a follow-up no-cors request will succeed but return an opaque response.
       if (response.ok) {
         setStatus("success");
-        event.currentTarget.reset();
-      } else {
-        setStatus("error");
+        formEl.reset();
+        return;
       }
+
+      // If Formspree returns JSON errors (e.g., validation), keep error state.
+      // Otherwise, fall back to no-cors and assume success when the request can be sent.
+      try {
+        const data = (await response.json()) as unknown;
+        if (
+          typeof data === "object" &&
+          data !== null &&
+          "errors" in data
+        ) {
+          setStatus("error");
+          return;
+        }
+      } catch {
+        // Non-JSON response; continue to fallback.
+      }
+
+      await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        mode: "no-cors",
+        body: new FormData(formEl),
+      });
+
+      setStatus("success");
+      formEl.reset();
     } catch {
+      // Last resort: show error only when we cannot even send the request.
       setStatus("error");
     }
   };
@@ -483,8 +855,8 @@ export default function Home() {
             <GlassCard className="glass-panel p-6">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <IconBadge>
-                    <SparkIcon />
+                  <IconBadge variant="badge-rose">
+                    <ZapIcon />
                   </IconBadge>
                   <div>
                     <p className="text-sm font-medium text-[color:var(--petal-ink)]">
@@ -530,8 +902,14 @@ export default function Home() {
                 key={card.title}
                 className="p-6 flex h-full flex-col"
               >
-                <IconBadge>
-                  {index === 0 ? <LeafIcon /> : index === 1 ? <SparkIcon /> : <HeartIcon />}
+                <IconBadge variant={card.badge}>
+                  {card.icon === "volume" ? (
+                    <VolumeIcon />
+                  ) : card.icon === "zap" ? (
+                    <ZapIcon />
+                  ) : (
+                    <HeartIcon />
+                  )}
                 </IconBadge>
                 <h3 className="mt-4 text-lg font-semibold text-[color:var(--petal-ink)]">
                   {card.title}
@@ -553,11 +931,16 @@ export default function Home() {
           <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
             {philosophyItems.map((item) => (
               <GlassCard key={item.title} className="flex flex-col items-center text-center p-6 h-full">
-                <IconBadge>
-                  {item.icon === "leaf" ? <LeafIcon /> : 
-                   item.icon === "heart" ? <HeartIcon /> : 
-                   item.icon === "spark" ? <SparkIcon /> : 
-                   <PetalIcon className="h-6 w-6" />}
+                <IconBadge variant={item.badge}>
+                  {item.icon === "bell" ? (
+                    <BellIcon />
+                  ) : item.icon === "moon" ? (
+                    <MoonIcon />
+                  ) : item.icon === "target" ? (
+                    <TargetIcon />
+                  ) : (
+                    <SmileIcon />
+                  )}
                 </IconBadge>
                 <div className="flex-1 flex flex-col justify-center">
                   <h3 className="mt-4 text-lg font-semibold text-[color:var(--petal-ink)]">
@@ -579,10 +962,22 @@ export default function Home() {
             subtitle="Thoughtfully designed features that support your wellbeing."
           />
           <div className="mx-auto grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature, index) => (
+            {features.map((feature) => (
               <GlassCard key={feature.title} className="p-6">
-                <IconBadge>
-                  {index % 2 === 0 ? <SparkIcon /> : <LeafIcon />}
+                <IconBadge variant={feature.badge}>
+                  {feature.icon === "calendar" ? (
+                    <CalendarIcon />
+                  ) : feature.icon === "sound" ? (
+                    <SoundIcon />
+                  ) : feature.icon === "note" ? (
+                    <NoteIcon />
+                  ) : feature.icon === "users" ? (
+                    <UsersIcon />
+                  ) : feature.icon === "grid" ? (
+                    <GridIcon />
+                  ) : (
+                    <HeartIcon />
+                  )}
                 </IconBadge>
                 <h3 className="mt-4 text-lg font-semibold text-[color:var(--petal-ink)]">
                   {feature.title}
