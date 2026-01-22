@@ -6,6 +6,8 @@ const FORM_ENDPOINT = "https://formspree.io/f/xykeyyye";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
+type BadgeVariant = "badge-rose" | "badge-green" | "badge-lavender" | "badge-amber";
+
 interface Petal {
   id: number;
   left: number;
@@ -23,7 +25,12 @@ const navLinks = [
   { label: "About", href: "#about" },
 ];
 
-const validationCards = [
+const validationCards: Array<{
+  title: string;
+  description: string;
+  icon: "volume" | "zap" | "heart";
+  badge: BadgeVariant;
+}> = [
   {
     title: "Quiet by design",
     description:
@@ -47,7 +54,12 @@ const validationCards = [
   },
 ];
 
-const philosophyItems = [
+const philosophyItems: Array<{
+  title: string;
+  description: string;
+  icon: "bell" | "moon" | "target" | "smile";
+  badge: BadgeVariant;
+}> = [
   {
     title: "Gentle reminders",
     description:
@@ -78,7 +90,12 @@ const philosophyItems = [
   },
 ];
 
-const features = [
+const features: Array<{
+  title: string;
+  description: string;
+  icon: "calendar" | "sound" | "note" | "users" | "grid" | "heart";
+  badge: BadgeVariant;
+}> = [
   {
     title: "Soft scheduling",
     description:
@@ -545,7 +562,7 @@ function IconBadge({
   variant = "badge-rose",
 }: {
   children: React.ReactNode;
-  variant?: "badge-rose" | "badge-green" | "badge-lavender" | "badge-amber";
+  variant?: BadgeVariant;
 }) {
   return <div className={`icon-badge ${variant}`}>{children}</div>;
 }
@@ -627,14 +644,16 @@ function FloatingPetals() {
         <div
           key={petal.id}
           className="absolute animate-petal"
-          style={{
+          style={
+            {
             left: `${petal.left}%`,
             top: "-8%",
             animationDelay: `${petal.delay}s`,
             animationDuration: `${petal.duration}s`,
             opacity: petal.opacity,
-            ["--petal-opacity" as const]: petal.opacity,
-          }}
+            ["--petal-opacity" as any]: petal.opacity,
+          } as React.CSSProperties
+          }
         >
           {petal.type === "sakura" ? (
             <svg
