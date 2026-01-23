@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "petal — A softer way to stay productive",
   description:
     "A gentle, supportive productivity companion that helps you focus without pressure, guilt, or burnout.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
